@@ -6,6 +6,14 @@ app.use(cors());
 const mongoDB = require("./db") 
 mongoDB();
 
+app.use(cors(
+  {
+    origin : ["https://food-ordering-application-tau.vercel.app"],
+    methods : ["POST", "GET"],
+    credentials : true
+  }
+));
+
 app.use((req, res, next)=>{
   res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
   res.header(
